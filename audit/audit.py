@@ -406,7 +406,7 @@ class Audit(commands.Cog):
                     else:
                         files += [discord.File(f, att.filename)]
                 embed.set_image(url=diff_attachments[0].url)
-                embed.add_field(name="✘ Deleted attachments", value=diff_text)
+                embed.add_field(name="Deleted attachments", value=diff_text)
             diff_attachments = [att for att in message.attachments if not get(cached_message.attachments, id=att.id)]
             if diff_attachments:
                 send_embed2 = True
@@ -414,7 +414,7 @@ class Audit(commands.Cog):
                 for att in diff_attachments:
                     diff_text += f"[{att.filename}]({att.url}) [**`Alt Link`**]({att.proxy_url})\n"
                 embed2.set_image(url=diff_attachments[0].url)
-                embed2.add_field(name="✓ Added attachments", value=diff_text)
+                embed2.add_field(name="Added attachments", value=diff_text)
             if cached_message.mention_everyone and not message.mention_everyone:
                 send_embed = True
                 embed.add_field(name="Mentions everyone", value="`true` -> `false`")
